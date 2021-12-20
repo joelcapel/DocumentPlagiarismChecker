@@ -1,7 +1,7 @@
 /*
     Copyright (C) 2018 Fernando Porrino Serrano.
-    This software it's under the terms of the GNU Affero General Public License version 3.
-    Please, refer to (https://github.com/FherStk/DocumentPlagiarismChecker/blob/master/LICENSE) for further licensing details.
+    Este software está bajo los términos de la GNU Affero General Public License versión 3.
+    Consulte (https://github.com/FherStk/DocumentPlagiarismChecker/blob/master/LICENSE) para obtener más detalles sobre la licencia.
  */
  
 using System;
@@ -14,15 +14,15 @@ using DocumentPlagiarismChecker.Scores;
 namespace DocumentPlagiarismChecker.Comparators.ParagraphWordCounter
 {
     /// <summary>
-    /// The Paragraph Word Counter Comparator reads a pair of files and counts how many words and how many times appear on each paragraph within a file, and 
-    /// then calculates how many of those appearences matches between documents. So, two documents with the same amount of the same paragraphs and 
-    /// words can be a copy with a high level of provability.
+    /// El Comparador de contador de palabras de párrafo lee un par de archivos y cuenta cuántas palabras y cuántas veces aparecen en cada párrafo dentro de un archivo, y
+    /// luego calcula cuántas de esas apariciones coinciden entre documentos. Entonces, dos documentos con la misma cantidad de los mismos párrafos y
+    /// las palabras pueden ser una copia con un alto nivel de demostrabilidad.
     /// </summary>
     /// <typeparam name="Document"></typeparam>
     internal class Comparator: Core.BaseComparator<Document>
     {  
         /// <summary>
-        /// Creates a new instance for the Comparator.
+        /// Crea una nueva instancia para el Comparador.
         /// </summary>
         /// <param name="fileLeftPath">The left side file's path.</param>
         /// <param name="fileRightPath">The right side file's path.</param>
@@ -31,14 +31,14 @@ namespace DocumentPlagiarismChecker.Comparators.ParagraphWordCounter
         }  
         
         /// <summary>
-        /// Counts how many words and how many times appears within each paragraph in a document, and checks the matching percentage.
+        /// Cuenta cuántas palabras y cuántas veces aparecen en cada párrafo de un documento y verifica el porcentaje de coincidencia.
         /// </summary>
         /// <returns>The matching's results.</returns>
         public override ComparatorMatchingScore Run(){     
-            //This order is meant to improving performance
+            //Este pedido está destinado a mejorar el rendimiento.
             ExcludeSampleExactMatches(); 
-            ExcludeSamplePartialMatches(this.Left, 0.70f);  //TODO: threshold value must be get from settings; check if can be removed
-            ExcludeSamplePartialMatches(this.Right, 0.70f);  //TODO: threshold value must be get from settings; check if can be removed
+            ExcludeSamplePartialMatches(this.Left, 0.70f);  //TODO: el valor umbral debe obtenerse de la configuración; comprobar si se puede quitar
+            ExcludeSamplePartialMatches(this.Right, 0.70f);  //TODO: el valor umbral debe obtenerse de la configuración; comprobar si se puede quitar
             ExcludeExclussionListMatches();
             
             return ComputeMatching(CompareParagraphs(this.Left, this.Right));                                                        
@@ -61,8 +61,8 @@ namespace DocumentPlagiarismChecker.Comparators.ParagraphWordCounter
         }
 
         /// <summary>
-        /// Compares the sample with the given file and exclude the paragraphs that produces a false positive match between the sample an the document.
-        /// </summary>
+
+/// Compara la muestra con el archivo dado y excluye los párrafos que producen una coincidencia falsa positiva entre la muestra y el documento.        /// </summary>
         private void ExcludeSampleExactMatches(){
             if(this.Sample == null) return;
 
