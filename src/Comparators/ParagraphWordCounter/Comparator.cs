@@ -16,7 +16,7 @@ namespace DocumentPlagiarismChecker.Comparators.ParagraphWordCounter
     /// <summary>
     /// El Comparador de contador de palabras de párrafo lee un par de archivos y cuenta cuántas palabras y cuántas veces aparecen en cada párrafo dentro de un archivo, y
     /// luego calcula cuántas de esas apariciones coinciden entre documentos. Entonces, dos documentos con la misma cantidad de los mismos párrafos y
-    /// las palabras pueden ser una copia con un alto nivel de demostrabilidad.
+    /// las palabras pueden ser una copia con un alto nivel de demostrabilidad. Joel
     /// </summary>
     /// <typeparam name="Document"></typeparam>
     internal class Comparator: Core.BaseComparator<Document>
